@@ -23,8 +23,6 @@ body {
 }
 
 .cards-container {
-/*     background-color: blue; */
-
     margin: 47px 109px 0 109px;
 
     display: flex;
@@ -46,6 +44,34 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    position: relative;
+
+}
+
+.card .face {
+    backface-visibility: hidden;
+    transition: all .5s;
+    transform-style: preserve-3d;
+}
+
+.card .front-face {
+    position: absolute;
+    
+}
+
+.card .back-face {
+    transform: rotateY(180deg);
+
+    position: absolute
+}
+
+.front-face.flipped {
+    transform: rotateY(-180deg);
+}
+
+.back-face.flipped {
+    transform: rotateY(0deg);
 }
 .card img {
     width: 100px;
