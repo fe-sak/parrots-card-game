@@ -9,6 +9,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    position: relative;
 }
 
 .title {
@@ -88,6 +90,13 @@ body {
 
 .pointer-events-none {
     pointer-events: none;
+}
+
+.clock {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    color: #75B79E;
 }
 
 

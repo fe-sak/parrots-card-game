@@ -1,4 +1,4 @@
-let cardQuantity = 14; /* prompt("Com quantas cartas deseja jogar? (Digite apenas números pares, de 4 a 14"); */
+let cardQuantity = prompt("Com quantas cartas deseja jogar? (Digite apenas números pares, de 4 a 14");
 
 while (cardQuantity < 4 || cardQuantity > 14 || cardQuantity % 2 !== 0) {
     cardQuantity = prompt("Número digitado inválido. Por favor, digite novamente (apenas números pares, de 4 a 14");
@@ -54,8 +54,9 @@ async function pairCheck(clicked) {
 
             console.log(document.querySelectorAll(".paired").length);
             if (document.querySelectorAll(".paired").length == cardQuantity) {
+                clearInterval(id);
                 await sleep(400);
-                alert(`Você ganhou em ${clicks} jogadas!`);
+                alert(`Você ganhou em ${clicks} jogadas!\nTempo: ${zeroLeft(minutes, 2)}:${zeroLeft(seconds, 2)}`);
             }
 
             selected.classList.remove("selected");
@@ -97,9 +98,28 @@ function flipCard(clicked) {
     }
 }
 
-function timeOut() {
-    console.log("delay");
+let id = setInterval(clock, 1000);
+
+let seconds = 0;
+let minutes = 0;
+
+function clock() {
+    seconds++;
+
+    if (seconds == 60) {
+        minutes++;
+        seconds = 0;
+    }
+
+    document.querySelector(".clock").innerHTML = `${zeroLeft(minutes, 2)}:${zeroLeft(seconds, 2)}`;
 }
+
+function zeroLeft(num, size) {
+    num = num.toString();
+    while (num.length < size) num = "0" + num;
+    return num;
+}
+
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
