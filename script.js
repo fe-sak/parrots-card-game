@@ -47,7 +47,7 @@ function cardSpread() {
 async function pairCheck(clicked) {
     let selected = document.querySelector(".selected");
 
-    if (selected !== null) { //segunda carta ->
+    if (selected !== null) {
         if (selected.children[1].children[0].isEqualNode(clicked.children[1].children[0]) && selected.id !== clicked.id) {
             selected.classList.add("paired");
             clicked.classList.add("paired");
@@ -56,7 +56,15 @@ async function pairCheck(clicked) {
             if (document.querySelectorAll(".paired").length == cardQuantity) {
                 clearInterval(id);
                 await sleep(400);
+
                 alert(`Você ganhou em ${clicks} jogadas!\nTempo: ${zeroLeft(minutes, 2)}:${zeroLeft(seconds, 2)}`);
+
+                let restart = prompt("Deseja jogar novamente?");
+                restart = restart.toLowerCase();
+
+                if (restart == "sim") {
+                    document.location.href = "";
+                }
             }
 
             selected.classList.remove("selected");
