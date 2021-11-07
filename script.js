@@ -6,7 +6,6 @@ while (cardQuantity < 4 || cardQuantity > 14 || cardQuantity % 2 !== 0) {
 
 cardSpread();
 
-
 function cardSpread() {
     let backFaces = ["bobrossparrot", "explodyparrot", "fiestaparrot", "metalparrot", "revertitparrot", "tripletsparrot", "unicornparrot"];
 
@@ -25,21 +24,21 @@ function cardSpread() {
 
     for (let i = 0; i < backFaces.length; i++) {
         document.querySelector(".cards-container").innerHTML = document.querySelector(".cards-container").innerHTML +
-            `<div class="card" id="a${i}" onclick="flipCard(this); pairCheck(this)">
+            `<div class="card" id="a${i}" data-identifier="card" onclick="flipCard(this); pairCheck(this)">
                 <div class="front-face face">
-                    <img  class="front-face" src="assets/front.png" alt="">
+                    <img  class="front-face" src="assets/front.png" data-identifier="front-face">
                 </div>
                 <div class="back-face face">
-                    <img  src="assets/${firstPair[i]}.gif" alt="">
+                    <img  src="assets/${firstPair[i]}.gif" data-identifier="back-face">
                 </div>
             </div>`;
         document.querySelector(".cards-container").innerHTML = document.querySelector(".cards-container").innerHTML +
-            `<div class="card" id="b${i}" onclick="flipCard(this); pairCheck(this)">
+            `<div class="card" id="b${i}" data-identifier="card" onclick="flipCard(this); pairCheck(this)">
                 <div class="front-face face">
-                    <img class="front-face" src="assets/front.png" alt="">
+                    <img class="front-face" src="assets/front.png" data-identifier="front-face">
                 </div>
                 <div class="back-face face">
-                    <img src="assets/${lastPair[i]}.gif" alt="">
+                    <img src="assets/${lastPair[i]}.gif" data-identifier="back-face">
                 </div>
              </div>`;
     }
@@ -52,6 +51,12 @@ async function pairCheck(clicked) {
         if (selected.children[1].children[0].isEqualNode(clicked.children[1].children[0]) && selected.id !== clicked.id) {
             selected.classList.add("paired");
             clicked.classList.add("paired");
+
+            console.log(document.querySelectorAll(".paired").length);
+            if (document.querySelectorAll(".paired").length == cardQuantity) {
+                await sleep(400);
+                alert(`Você ganhou em ${clicks} jogadas!`);
+            }
 
             selected.classList.remove("selected");
         }
@@ -83,10 +88,12 @@ function random() {
     return Math.random() - 0.5;
 }
 
+let clicks = 0;
 function flipCard(clicked) {
     if (!clicked.classList.contains("paired")) {
         clicked.children[0].classList.toggle("flipped");
         clicked.children[1].classList.toggle("flipped");
+        clicks++;
     }
 }
 
