@@ -11,36 +11,21 @@ function cardSpread() {
 
     backFaces.sort(random);
 
-    backFaces.length = cardQuantity / 2;
-
-    let firstPair = [];
-    let lastPair = [];
-
-    firstPair = [...backFaces];
+    backFaces = backFaces.slice(0, cardQuantity / 2);
+    backFaces = backFaces.concat(backFaces);
 
     backFaces.sort(random);
 
-    lastPair = [...backFaces];
-
     for (let i = 0; i < backFaces.length; i++) {
         document.querySelector(".cards-container").innerHTML = document.querySelector(".cards-container").innerHTML +
-            `<div class="card" id="a${i}" data-identifier="card" onclick="flipCard(this); pairCheck(this)">
+            `<div class="card" id="${i}" data-identifier="card" onclick="flipCard(this); pairCheck(this)">
                 <div class="front-face face">
                     <img  class="front-face" src="assets/front.png" data-identifier="front-face">
                 </div>
                 <div class="back-face face">
-                    <img  src="assets/${firstPair[i]}.gif" data-identifier="back-face">
+                    <img  src="assets/${backFaces[i]}.gif" data-identifier="back-face">
                 </div>
             </div>`;
-        document.querySelector(".cards-container").innerHTML = document.querySelector(".cards-container").innerHTML +
-            `<div class="card" id="b${i}" data-identifier="card" onclick="flipCard(this); pairCheck(this)">
-                <div class="front-face face">
-                    <img class="front-face" src="assets/front.png" data-identifier="front-face">
-                </div>
-                <div class="back-face face">
-                    <img src="assets/${lastPair[i]}.gif" data-identifier="back-face">
-                </div>
-             </div>`;
     }
 }
 
@@ -52,12 +37,13 @@ async function pairCheck(clicked) {
             selected.classList.add("paired");
             clicked.classList.add("paired");
 
-            console.log(document.querySelectorAll(".paired").length);
             if (document.querySelectorAll(".paired").length == cardQuantity) {
                 clearInterval(id);
                 await sleep(400);
 
                 alert(`Você ganhou em ${clicks} jogadas!\nTempo: ${zeroLeft(minutes, 2)}:${zeroLeft(seconds, 2)}`);
+
+                await sleep(400);
 
                 let restart = prompt("Deseja jogar novamente?");
                 restart = restart.toLowerCase();
@@ -128,6 +114,6 @@ function zeroLeft(num, size) {
     return num;
 }
 
-function sleep(ms) {
+async function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
