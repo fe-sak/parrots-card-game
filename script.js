@@ -62,14 +62,15 @@ async function pairCheck(clicked) {
                 cardsArray[i].classList.add("pointer-events-none");
             }
 
-            await sleep(1000);
+            if (selected.id !== clicked.id) {
+                await sleep(1000);
+                selected.children[0].classList.remove("flipped");
+                selected.children[1].classList.remove("flipped");
+                selected.classList.toggle("selected");
 
-            selected.children[0].classList.remove("flipped");
-            selected.children[1].classList.remove("flipped");
-            selected.classList.toggle("selected");
-
-            clicked.children[0].classList.remove("flipped");
-            clicked.children[1].classList.remove("flipped");
+                clicked.children[0].classList.remove("flipped");
+                clicked.children[1].classList.remove("flipped");
+            }
 
             for (let i = 0; i < cardsArray.length; i++) {
                 cardsArray[i].classList.remove("pointer-events-none");
@@ -86,8 +87,8 @@ function random() {
 let clicks = 0;
 function flipCard(clicked) {
     if (!clicked.classList.contains("paired")) {
-        clicked.children[0].classList.toggle("flipped");
-        clicked.children[1].classList.toggle("flipped");
+        clicked.children[0].classList.add("flipped");
+        clicked.children[1].classList.add("flipped");
         clicks++;
     }
 }
