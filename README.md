@@ -3,7 +3,7 @@ It's a memory card game!
 
 <img src="https://media.giphy.com/media/62Yp8060L4xsbGPkYA/giphy.gif" alt='example of usage' />
 
-You can use it right now [here!](https://fe-sak.github.io/parrots-card-game/)
+You can play with it right now [here!](https://fe-sak.github.io/parrots-card-game/)
 
 
 ### Why?
