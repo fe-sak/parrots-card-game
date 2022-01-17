@@ -1,15 +1,14 @@
 # Parrots Card Game
 It's a memory card game! 
 
-<img src="https://media.giphy.com/media/62Yp8060L4xsbGPkYA/giphy.gif" alt='example of usage' />
+<img src="https://media.giphy.com/media/E9lV71JBHiQ9rPCETs/giphy.gif" alt='gif' />
 
 You can play with it right now [here!](https://fe-sak.github.io/parrots-card-game/)
 
 
 ### Why?
 
-I wanted to create a project which the user could interact and play with. Even though it's a simple project, I had so much enjoyment building it!  I hope someone can have fun
-with this project :)
+I wanted to create a project with which the user could interact and play. Even though it's a simple project, I had so much enjoyment building it!  I hope it can bring fun to someone :)
 
 ## Functionalities
 
@@ -26,35 +25,21 @@ with this project :)
 
 ## How to install this app
 
+This is a pure html, css javascript project! If you wish to install it localy, all you need to do is to clone the repository to your local machine
+
   **Cloning the Repository**
 
 ```
-$ git clone git@github.com:fe-sak/track-it.git
-$ cd track-it
-```
-
-**Installing dependencies**
-
-```
-$ yarn
-```
-
-_or_
-
-```
-$ npm install
+$ git clone git@github.com:fe-sak/parrots-card-game.git
 ```
 
 ## How to run this app
 
-With all dependencies installed and the environment properly configured, you can now run the app in development mode:
+To run this app on your internet browser, you will need an application that runs a local server for you. If you are using VS Code, this is easily achievable using the extension [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer).
 
-```
-$ npm run start
-```
+After installing the extension, open the index.html file and right-click anywhere in the editor. 
+Then, click on "Open with Live Server", as shown:
 
-## Learn more about react and how to set it up
+<img src="https://serving.photos.photobox.com/96582382b68c1bd6f1441c61c285f0a4277b68ae0800f91ba0b258468ea463d4aceb5a0b.jpg" alt="img">
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+You can also click on "Go Live" located at the bottom of the screenshot
