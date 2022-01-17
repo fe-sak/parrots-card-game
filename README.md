@@ -8,7 +8,7 @@ You can play with it right now [here!](https://fe-sak.github.io/parrots-card-gam
 
 ### Why?
 
-I wanted to create a project with which the user could interact and play. Even though it's a simple project, I had so much pleasure building it!  Ultimately, I hope you too may have fun with it :)
+I wanted to create a project with which the user could interact and play. Even though it's a simple project, I had so much pleasure building it!  Now, I hope you too may have fun with it :)
 
 ## Functionalities
 
