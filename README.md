@@ -19,9 +19,9 @@ I wanted to create a project with which the user could interact and play. Even t
 
 ## Technologies used
 
-- html
-- css
-- javascript
+![HTML](https://img.shields.io/badge/-HTML-05122A?style=flat&logo=HTML5)&nbsp;
+![CSS](https://img.shields.io/badge/-CSS-05122A?style=flat&logo=CSS3&logoColor=1572B6)&nbsp;
+![JavaScript](https://img.shields.io/badge/-JavaScript-05122A?style=flat&logo=javascript)&nbsp;
 
 ## How to install this app
 
